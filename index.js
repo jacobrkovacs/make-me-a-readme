@@ -1,7 +1,6 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
-//const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
@@ -17,67 +16,47 @@ const questions = [
     "What license are you using?"
 ];
 
-function writeToFile(){
-    inquirer.prompt([
+const idName = [
+    "title",
+    "description",
+    "installation",
+    "usage",
+    "contribute",
+    "credit",
+    "github",
+    "email"
+]
+
+const answers = [];
+async function writeToFile() {
+    for(let i = 0; i < questions.length - 1; i++) {
+    const response = await inquirer.prompt([
         {    
             type: 'input',
-            message: questions[0],
-            name: 'title',
-        },
-        {    
-            type: 'input',
-            message: questions[1],
-            name: 'description',
-        },
-        {    
-            type: 'input',
-            message: questions[2],
-            name: 'installation',
-        },
-        {    
-            type: 'input',
-            message: questions[3],
-            name: 'usage',
-        },
-        {    
-            type: 'input',
-            message: questions[4],
-            name: 'contribute',
-        },
-        {    
-            type: 'input',
-            message: questions[5],
-            name: 'credit',
-        },
-        {    
-            type: 'input',
-            message: questions[6],
-            name: 'github',
-        },
-        {    
-            type: 'input',
-            message: questions[7],
-            name: 'email',
-        },
-        {    
+            message: questions[i],
+            name: idName[i],
+        }
+        ])
+        answers.push(response)
+    }
+    await inquirer.prompt([
+        {
             type: 'checkbox',
             message: questions[8],
             name: 'license',
-            choices: ["MIT", "Unlicensed", "supercoollicense"]
-            
-        },
+            choices: ["MIT", "Apache", "Unlicensed"]
+        }
     ])
     .then((response) => {
-        JSON.stringify(response)
-        fs.writeFile('testREADME.md', generateMarkdown(response), (err) =>
+        answers.push(response)
+        console.log(answers)
+        fs.writeFile('testREADME.md', generateMarkdown(answers), (err) =>
         err ? console.error(err) : console.log('Success'));
     })
 }
-
 // TODO: Create a function to initialize app
 function init() {
     writeToFile();
 }
-
 // Function call to initialize app
 init();
