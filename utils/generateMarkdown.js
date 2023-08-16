@@ -1,5 +1,3 @@
-const answers = require('../index.js')
-
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(data) {
@@ -15,8 +13,14 @@ function renderLicenseBadge(data) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {
-  //the link is imbedded in the badge. All the user has to do is click the badge in the README
+function renderLicenseLink(data) {
+  if(data[8].license[0] === 'MIT'){
+    return "https://opensource.org/licenses/MIT"
+  } else if(data[8].license[0] === 'Apache'){
+    return "https://opensource.org/licenses/Apache-2.0"
+  } else{
+    return ""
+  }
 }
 
 // TODO: Create a function that returns the license section of README
@@ -51,8 +55,9 @@ ${data[4].contribute}\n
 ## Credits
 ${data[5].credit}\n
 ## Questions
-If you have any questions, feel free to reach out at ${data[6].github} or on my GitHub account at https://github.com/${data[7].email}\n
+If you have any questions, feel free to reach out at ${data[7].email} or on my GitHub account at https://github.com/${data[6].github}\n
 ${renderLicenseSection(data)}
+${renderLicenseLink(data)}
 `;
 return generateMarkdown;
 }

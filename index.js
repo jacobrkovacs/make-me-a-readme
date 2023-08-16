@@ -27,8 +27,8 @@ const idName = [
     "email"
 ]
 
-const answers = [];
 async function writeToFile() {
+    const answers = [];
     for(let i = 0; i < questions.length - 1; i++) {
     const response = await inquirer.prompt([
         {    
@@ -50,7 +50,7 @@ async function writeToFile() {
     .then((response) => {
         answers.push(response)
         console.log(answers)
-        fs.writeFile('testREADME.md', generateMarkdown(answers), (err) =>
+        fs.writeFile('createdREADME.md', generateMarkdown(answers), (err) =>
         err ? console.error(err) : console.log('Success'));
     })
 }
