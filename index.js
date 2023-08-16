@@ -50,7 +50,7 @@ async function writeToFile() {
     .then((response) => {
         answers.push(response)
         console.log(answers)
-        fs.writeFile('createdREADME.md', generateMarkdown(answers), (err) =>
+        fs.writeFile('sampleREADME.md', generateMarkdown(answers), (err) =>
         err ? console.error(err) : console.log('Success'));
     })
 }
