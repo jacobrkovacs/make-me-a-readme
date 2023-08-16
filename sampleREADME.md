@@ -1,9 +1,8 @@
 
-# Make Me a README
+# sampleREADME [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
-Takes user input and writes a .md file for the repo
-https://drive.google.com/file/d/1GpjFgqGo6jPw26f1hd8OD5bgO_9bD4eO/view
+Takes user input and writes a custom README file
 
 ## Table of Contents
   - [Installation](#installation)
@@ -17,10 +16,10 @@ https://drive.google.com/file/d/1GpjFgqGo6jPw26f1hd8OD5bgO_9bD4eO/view
 node, inquirer module
 
 ## Usage
-Run app with node index.js, answer all prompts, after final prompt is answered a README.md file will be written to the repo
+Run program with node index.js. Answer all prompts. After the last prompt is answered, a file called sampleREADME.md will be written to the repo
 
 ## Contribution
-Please open a pull request for all contributions
+Please make a pull request for all contributions
 
 ## Credits
 N/A
@@ -29,4 +28,4 @@ N/A
 If you have any questions, feel free to reach out at jwkovacs.19@gmail.com or on my GitHub account at https://github.com/jacobrkovacs
 
 ## License
-N/A
+https://opensource.org/licenses/MIT
